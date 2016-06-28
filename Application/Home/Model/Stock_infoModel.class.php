@@ -51,8 +51,10 @@ class Stock_infoModel extends Model{
         $condition['stock_code']=$stock_code;
         if($state=='surging')
             $state=1;
-        else
+        elseif($state=='decline')
             $state=-1;
+        else
+            $state=0;
         $result = M('stock_info')->where($condition)->setField('state',$state);
         //return $result;
     }

@@ -226,7 +226,15 @@ class IndexController extends Controller {
         foreach ($stocks as $eachstock) {
             $model->updateinfo($eachstock);
         }
-        
+
+        //更新股票状态
+        $result1=$this->curlPost('https://se.clarkok.com/center/stock/closed', $post_data,$timeout,false);
+        $result1= json_decode($result1,true);
+        $stocks1=$result1['stock'];
+        //$model->resetstate();
+        foreach ($stocks1 as $eachstock) {
+            $model->updatestate($eachstock['code'],$eachstock['state']);
+        }
         $this->ajaxReturn($result,'JSON');
         // //Kline
         // $model1 = new KlineModel();
