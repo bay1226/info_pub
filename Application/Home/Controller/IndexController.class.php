@@ -214,14 +214,14 @@ class IndexController extends Controller {
         $result=$this->curlPost('https://se.clarkok.com/center/stock/all', $post_data,$timeout,false);
         $result= json_decode($result,true);
         $state['state']=$result['state'];   
-        $result['stocks'] = array( 0=>array( 'code'=>'A01XX', 'name'=>'stock01' , 'price' =>12.32, 'lowest_price' =>10.2, 'highest_price' => 13.23, 'amount' => 4200, 'last_price' => 12.43, 'closing_price' => 12.24, 'opening_price' => 12.44) ,
-                                  1=>array( 'code'=>'AXX02', 'name'=>'stock0111' , 'price' =>12.32, 'lowest_price' =>10.2, 'highest_price' => 13.23, 'amount' => 4200, 'last_price' => 12.43, 'closing_price' => 12.24, 'opening_price' => 12.44) ,
-                                  2=>array( 'code'=>'003', 'name'=>'stock01111' , 'price' =>12.32, 'lowest_price' =>10.2, 'highest_price' => 13.23, 'amount' => 4200, 'last_price' => 12.43, 'closing_price' => 12.24, 'opening_price' => 12.44), 
-                              );
+        // $result['stocks'] = array( 0=>array( 'code'=>'A01XX', 'name'=>'stock01' , 'price' =>12.32, 'lowest_price' =>10.2, 'highest_price' => 13.23, 'amount' => 4200, 'last_price' => 12.43, 'closing_price' => 12.24, 'opening_price' => 12.44) ,
+        //                           1=>array( 'code'=>'AXX02', 'name'=>'stock0111' , 'price' =>12.32, 'lowest_price' =>10.2, 'highest_price' => 13.23, 'amount' => 4200, 'last_price' => 12.43, 'closing_price' => 12.24, 'opening_price' => 12.44) ,
+        //                           2=>array( 'code'=>'003', 'name'=>'stock01111' , 'price' =>12.32, 'lowest_price' =>10.2, 'highest_price' => 13.23, 'amount' => 4200, 'last_price' => 12.43, 'closing_price' => 12.24, 'opening_price' => 12.44), 
+        //                       );
         // do{
         //     $result=$this->send_post('/center/stock/all', $post_data);
         // }while ($result['state']=='error');
-        $model->clear_all();
+        //$model->clear_all();
         $stocks=$result['stocks'];
         foreach ($stocks as $eachstock) {
             $model->updateinfo($eachstock);
