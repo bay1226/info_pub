@@ -16,9 +16,6 @@ $("a#menu-publish").click(function() {
     $("#search").hide();
     $("#publish").show();
 })
-$("a#menu-recover").click(function() {
-    alert("Recover Success!");
-})
 
 $("a#menu-search").click(function() {
     //alert("aah!");
