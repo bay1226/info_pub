@@ -78,6 +78,7 @@ class Stock_infoModel extends Model{
        // $record['stock_name']=$eachstock['name'];
         $record['open']=$eachstock['opening_price'];
         $record['close']=$eachstock['closing_price'];
+        $record['pause']=$eachstock['pause'];
         $record['indecrease']=$indecrease;
         $record['total_price']=$total_price;
         $record['total_num']=$eachstock['amount'];
