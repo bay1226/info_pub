@@ -51,10 +51,8 @@ class Stock_infoModel extends Model{
         $condition['stock_code']=$stock_code;
         if($state=='surging')
             $state=1;
-        elseif($state=='decline')
-            $state=-1;
         else
-            $state=0;
+            $state=-1;
         $result = M('stock_info')->where($condition)->setField('state',$state);
         //return $result;
     }
@@ -74,8 +72,10 @@ class Stock_infoModel extends Model{
      function updateinfo($eachstock){
         $indecrease= ($eachstock['price']-$eachstock['opening_price'])/$eachstock['opening_price'];
         $total_price=$eachstock['amount']*$eachstock['price']; 
+        $condition['stock_code']=$eachstock['code'];
+
         $record['stock_code']=$eachstock['code'];
-        $record['stock_name']=$eachstock['name'];
+       // $record['stock_name']=$eachstock['name'];
         $record['open']=$eachstock['opening_price'];
         $record['close']=$eachstock['closing_price'];
         $record['indecrease']=$indecrease;
@@ -84,6 +84,6 @@ class Stock_infoModel extends Model{
         $record['max']=$eachstock['highest_price'];
         $record['min']=$eachstock['lowest_price'];
         $record['price']=$eachstock['price'];
-        M('stock_info')->add($record);
+        M('stock_info')->where($condition)->save($record);
     }   
 }
