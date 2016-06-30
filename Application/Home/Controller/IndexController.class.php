@@ -237,7 +237,7 @@ class IndexController extends Controller {
         //更新股票状态
         $result1=$this->curlPost('https://se.clarkok.com/center/stock/closed', $post_data,$timeout,false);
         $result1= json_decode($result1,true);
-        $stocks1=$result1['stock'];
+        $stocks1=$result1['stocks'];
         //$model->resetstate();
         foreach ($stocks1 as $eachstock) {
             $model->updatestate($eachstock['code'],$eachstock['state']);
