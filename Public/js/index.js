@@ -132,9 +132,9 @@ function getnote() {
         for (var i = 0; i < result.length; i++) {
                 var info=result[i]["stock_name"];
                 if(result[i]['state']==-1)
-                    info += 'decrease';
+                    info += '  decrease\n';
                 else
-                    info += 'increase';
+                    info += '  increase\n';
                 $('#note').append(info);
             } //end for employs
     });
