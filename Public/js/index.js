@@ -142,6 +142,7 @@ function getnote() {
 
 function showKgraph(obj) {
      $.post("../Index/isvip", function (result){
+        console.log(result);
         if(result['info']==1)
         {
             var code=obj.value;
