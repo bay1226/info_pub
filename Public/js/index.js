@@ -204,6 +204,7 @@ $("button#testbtn").click(function()
     {
         $.post("../Index/update_allstock_data", function (result){
             console.log(result);
+            console.log('test');
            
        }
     )    
