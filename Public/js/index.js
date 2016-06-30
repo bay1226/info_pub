@@ -155,7 +155,7 @@ function showKgraph(obj) {
             alert(result['msg']);
           
            
-       }
+       })
     
 }
 
