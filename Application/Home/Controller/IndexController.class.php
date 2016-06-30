@@ -218,9 +218,9 @@ class IndexController extends Controller {
         // //update stock
         $post_data = array();
         $timeout=60;
-        //$result=$this->curlPost('https://se.clarkok.com/center/stock/all', $post_data,$timeout,false);
+        $result=$this->curlPost('https://se.clarkok.com/center/stock/all', $post_data,$timeout,false);
         //$result= json_decode($result,true);
-        $result= 1;
+        //$result= 1;
         $this->ajaxReturn($result,'JSON');
         //$state['state']=$result['state'];   
         // $result['stocks'] = array( 0=>array( 'code'=>'A01XX', 'name'=>'stock01' , 'price' =>12.32, 'lowest_price' =>10.2, 'highest_price' => 13.23, 'amount' => 4200, 'last_price' => 12.43, 'closing_price' => 12.24, 'opening_price' => 12.44) ,
