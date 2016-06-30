@@ -141,11 +141,21 @@ function getnote() {
 }
 
 function showKgraph(obj) {
-    var code=obj.value;
-    $("#myModalLabel").text(code);
-    $("svg").remove();
-    drawK(code);
-    $('#myModal').modal('show');
+     $.post("../Index/isvip", function (result){
+        if(result['info']==1)
+        {
+            var code=obj.value;
+            $("#myModalLabel").text(code);
+            $("svg").remove();
+            drawK(code);
+            $('#myModal').modal('show');
+        }
+        else
+            alert(result['msg']);
+          
+           
+       }
+    
 }
 
 $("button#changepsw-bt").click(function() {

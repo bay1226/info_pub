@@ -49,7 +49,14 @@ class IndexController extends Controller {
             $this->redirect('Index/index');
         }
     }
-
+    function isvip(){
+        $result['info']=$_SESSION['isvip'];
+        if($_SESSION['isvip']!=1)
+            $result['msg']='you are not a vip';
+        else
+            $result['msg']='success';
+        $this->ajaxReturn($result,'JSON');
+    }
 
     /*升级账户*/
     public function upgrade(){
