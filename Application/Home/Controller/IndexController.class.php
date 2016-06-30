@@ -219,7 +219,7 @@ class IndexController extends Controller {
         $post_data = array();
         $timeout=60;
         $result=$this->curlPost('https://se.clarkok.com/center/stock/all', $post_data,$timeout,false);
-        //$result= json_decode($result,true);
+        $result= json_decode($result,true);
         //$result= 1;
         $this->ajaxReturn($result,'JSON');
         //$state['state']=$result['state'];   
